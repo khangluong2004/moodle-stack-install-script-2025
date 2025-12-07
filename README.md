@@ -29,7 +29,7 @@ cd moodle-stack-installer
 chmod +x install_moodle_stack.sh
 ```
 
-3. Run the script:
+3. Run the script (If on windows, careful with CRLF. Need to have LF ending.):
 ```bash
 sudo ./install_moodle_stack.sh
 ```
@@ -57,3 +57,14 @@ sudo systemctl restart apache2
 2. Complete the STACK plugin installation through the web interface
 3. Run the STACK health check at: Site Administration > Plugins > Question Types > STACK
 4. If the STACK health check produces errors, follow the troubleshooting guide [here](https://docs.stack-assessment.org/en/Installation/Testing_installation/)
+
+For further support for step 4:
+## Errors resolved
+
+1. Maxima issues:
+Inside the plugins, set Maxima command to the full path of maxima executable (eg: usr/bin/maxima).
+
+```bash
+# command to find executable location
+which maxima
+```
