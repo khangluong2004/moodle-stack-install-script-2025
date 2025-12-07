@@ -41,6 +41,16 @@ The script will:
 - Install STACK question type and its dependencies
 - Configure basic settings
 
+Note: Apache2 web server will only listen to port 80 by default. If installed locally (not through vm), need to configure the server to listen to 1080 (by default):
+
+```bash
+# Configure Apache to listen on port 1080
+echo "Configuring Apache to listen on port 1080..."
+sudo sed -i 's/Listen 80/Listen 1080/' /etc/apache2/ports.conf
+sudo sed -i 's/:80>/:1080>/' /etc/apache2/sites-available/000-default.conf
+sudo systemctl restart apache2
+```
+
 ## After Installation
 
 1. Access Moodle at `http://localhost:1080/moodle` (or your configured address)
